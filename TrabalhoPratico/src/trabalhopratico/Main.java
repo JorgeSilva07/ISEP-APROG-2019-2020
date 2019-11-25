@@ -44,7 +44,6 @@ public class Main {
     
     //Alinea 2
     public static int adicionaEquipa(String[][] equipas_string, int[][] equipas_int, int equipas_carregadas) throws IOException {
-        //é preciso verificar se o nome da equipa já existe
         sc = new Scanner(System.in);
         String nome_equipa;
         String grupo;
@@ -87,7 +86,7 @@ public class Main {
                 equipas_int[equipas_carregadas][6] = sc.nextInt();
                 System.out.println("Quantidade de golos sofridos: ");
                 equipas_int[equipas_carregadas][7] = sc.nextInt();
-                System.out.println("A equipa " + equipas_string[equipas_carregadas][1] + "foi guardada.");
+                System.out.println("A equipa " + equipas_string[equipas_carregadas][1] + " foi guardada.");
                 equipas_carregadas++;
             }
         }
@@ -95,13 +94,7 @@ public class Main {
         return equipas_carregadas;
     }
     
-    
-    
-    
-    
-    
     //alinea 4 e 5
-    
     //Este método insere as posições das equipas no array
     public static void inserePos(int[][] equipas_int, String[][] equipas_string, int equipas_carregadas) {
         int cont = 0;
@@ -227,8 +220,8 @@ public class Main {
             System.out.println("\nNão existe nenhuma equipa com esse nome!");
             Menu.listagens(equipas_string, equipas_int, equipas_carregadas);
         }
-       
     }
+    
     //Alinea 11
     public static void estatisticas(String[][] equipas_string, int[][] equipas_int, int equipasCarregadas, String file) throws FileNotFoundException, IOException {
         int tjogos = 0, tvitorias = 0, tempates = 0, tderrotas = 0, tgm = 0, tgs = 0;
@@ -261,7 +254,6 @@ public class Main {
     }
     
     //Alinea 12
-    
     public static void removeLinha(String[][] equipas_string, int[][] equipas_int, int equipas_carregadas, int pos) {
         for (int i = pos; i < equipas_carregadas; i++) {
             equipas_string[i] = equipas_string[i + 1];
@@ -271,7 +263,6 @@ public class Main {
     }
     public static int removerEquipas(String[][] equipas_string, int[][] equipas_int, int equipas_carregadas) {
        for (int i = 0; i < equipas_carregadas; i++) {
-           System.out.println(equipas_int[i][0]);
            if (equipas_int[i][0] == 3) { // verifica se a posição é igual a 3
                removeLinha(equipas_string, equipas_int, equipas_carregadas, i);
                equipas_carregadas--; // decrementa 1 equipa do array
@@ -363,24 +354,6 @@ public class Main {
         int[][] equipas_int = new int[EQUIPAS_MAX][ARR_INT]; //POS, PTS, J, V, E, D, GM, GS, GD
         int equipasCarregadas = lerFicheiro(equipas_string, equipas_int , FICHEIRO_LER);
         Menu.menuPrincipal(equipas_string, equipas_int, equipasCarregadas);
-        //removerEquipas(equipas_string, equipas_int, equipasCarregadas);
-        /*Utils.calcularArmazenarPontos(equipas_int, equipasCarregadas);
-        Utils.calcularDG(equipas_int,equipasCarregadas);
-        Utils.listagem(equipas_string, equipas_int, equipasCarregadas);
-        Utils.ordenar(equipas_int, equipas_string, equipasCarregadas);
-        Utils.listagem(equipas_string, equipas_int, equipasCarregadas);
-        equipasCarregadas = removerEquipas(equipas_string, equipas_int, equipasCarregadas);
-        Utils.listagem(equipas_string, equipas_int, equipasCarregadas);
-        escreverCSV(equipas_string, equipas_int, equipasCarregadas, FICHEIRO_FINAL_STAGE);
-        escreverTXT(equipas_string, equipas_int, equipasCarregadas, FICHEIRO_FINAL_STAGE_GAMES);
-        estatisticas(equipas_int, equipasCarregadas, FICHEIRO_ESTATISTICAS);
-        //Menu.menuPrincipal(equipas_string, equipas_int, equipasCarregadas);
-        //adicionaEquipa(equipas);
-        //System.out.println(equipasCarregadas + " " + EQUIPAS_MAX);
-        //listagem(equipas);
-        //Utils.printStringMatrix(equipas);*/
-        
-        
     }
     
 }

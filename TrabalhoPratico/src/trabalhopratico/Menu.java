@@ -71,10 +71,7 @@ public class Menu {
                             n = sc.nextInt();
                         }
                         if (n == 1) {
-                            System.out.println(equipas_carregadas);
-                        //Main.removeLinha(equipas_string, equipas_int, equipas_carregadas, num);
                             equipas_carregadas = Main.removerEquipas(equipas_string, equipas_int, equipas_carregadas);
-                            System.out.println(equipas_carregadas);
                             apagar = true;
                             System.out.println("Equipas removidas!");
                         } else {
